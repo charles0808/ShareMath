@@ -1,0 +1,13 @@
+<h1>Formulas</h1>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Expression</th>
+    </tr>
+    <% @formulas.each do |formula| %>
+    <tr>
+        <td><%= link_to formula.title, formula_path(formula) %></td>
+        <td>$<%= formula.expression %>$</td>
+    </tr>
+    <% end %>
+</table>

@@ -14,3 +14,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+window.MathJax = {
+    tex2jax: {
+        inlineMath: [ ['$','$'] ]
+        // processEscapes: true
+    }
+};
+
+function RenderMath() {
+    if (!MathJax.Hub) return;
+    MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+}
+
+$(document).on('turbolinks:load', RenderMath);

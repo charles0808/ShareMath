@@ -1,13 +1,21 @@
 class FormulasController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+
+  def index
+    @formulas = Formula.all
+  end
+
   def show
-    @article = Formula.find(params[:id])
+    @formula = Formula.find(params[:id])
   end
 
   def new
   end
 
   def create
-    @formula = Formula.new(forumla_params)
+    params = forumla_params
+    params[:user] = current_user
+    @formula = Formula.new(params)
     @formula.save
     redirect_to @formula
   end
