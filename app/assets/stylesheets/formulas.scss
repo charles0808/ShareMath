@@ -10,9 +10,13 @@
 
 input#formula_title {
     font-size: 2em;
-    border: none
+    border: none;
 }
 
 .preview-placeholder {
-    color: gray
+    color: gray;
+}
+
+.card-formula{
+	overflow: hidden;
 }
