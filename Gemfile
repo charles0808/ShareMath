@@ -27,7 +27,7 @@ gem 'jbuilder', '~> 2.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '~> 4.0.0'
-gem 'bootstrap-sass'
+gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'autoprefixer-rails'
 
 # Use Capistrano for deployment
