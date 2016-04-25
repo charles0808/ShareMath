@@ -24,8 +24,18 @@ window.MathJax = {
 };
 
 function RenderMath() {
-    if (!MathJax.Hub) return;
     MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 }
 
-$(document).on('turbolinks:load', RenderMath);
+function RenderAce() {
+
+}
+
+function ShareMathMain() {
+    RenderMath();
+    if ( typeof setupExpressionEditor === 'function' ) {
+        setupExpressionEditor();
+    }
+}
+
+$(document).on('turbolinks:load', ShareMathMain);

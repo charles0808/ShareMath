@@ -1,18 +1,31 @@
-<h1>New Formula</h1>
 <%= form_for :formula, url: formulas_path do |f| %>
-    <p>
-        <%= f.label :title %><br>
-        <%= f.text_field :title %>
-    </p>
-    <p>
-        <%= f.label :expression %><br>
-        <%= f.text_area :expression %>
-    </p>
-    <p>
-        <%= f.label :content %><br>
-        <%= f.text_area :content %>
-    </p>
-    <p>
-        <%= f.submit %>
-    </p>
+  <fieldset class="form-group">
+    <%= f.text_field :title, :class => 'form-control', :placeholder => 'Formula Name' %>
+  </fieldset>
+  <fieldset class="form-group">
+    <h1 id="formula-expression-preview"></h1>
+    <h1 id="formula-expression-buffer" style="visibility:hidden"></h1>
+    <%= f.text_area :expression, :class => 'form-control', :rows => '4', :placeholder => 'a^2+b^2=c^2' %>
+    <div id="formula-expression-editor"></div>
+  </fieldset>
+  <fieldset class="form-group">
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#content-markdown" role="tab">Markdown</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#content-preview" role="tab">Preview</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="content-markdown" role="tabpanel">
+        <%= f.text_area :content, :class => 'form-control', :rows => '20', :placeholder => '** Describe the formula **' %>
+      </div>
+      <div class="tab-pane active" id="content-preview" role="tabpanel">
+      </div>
+    </div>
+  </fieldset>
+  <p>
+    <%= f.submit :class => 'btn btn-primary' %>
+  </p>
 <% end %>
