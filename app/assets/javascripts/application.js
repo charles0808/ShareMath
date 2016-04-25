@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .
 
 window.MathJax = {
@@ -24,7 +25,7 @@ window.MathJax = {
 
 function RenderMath() {
     if (!MathJax.Hub) return;
-    MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 }
 
 $(document).on('turbolinks:load', RenderMath);

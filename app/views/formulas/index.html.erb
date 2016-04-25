@@ -1,13 +1,12 @@
-<h1>Formulas</h1>
-<table>
-    <tr>
-        <th>Title</th>
-        <th>Expression</th>
-    </tr>
-    <% @formulas.each do |formula| %>
-    <tr>
-        <td><%= link_to formula.title, formula_path(formula) %></td>
-        <td>$<%= formula.expression %>$</td>
-    </tr>
-    <% end %>
-</table>
+<div class="card-deck-wrapper">
+    <div class="card-deck">
+        <% @formulas.each do |formula| %>
+        <div class="card">
+            <div class="card-block">
+                <h3 class="card-title"><%= link_to formula.title, formula_path(formula) %></h3>
+                <h4 class="card-title">$<%= formula.expression %>$</h4>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>

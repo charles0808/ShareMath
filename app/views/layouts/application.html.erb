@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>ShareMath</title>
+    <meta name="turbolinks-cache-control" content="no-cache">
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
 
@@ -11,17 +12,30 @@
 
   <body>
     <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <% if user_signed_in? %>
+            <li role="presentation"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+            <% else %>
+            <li role="presentation"><%= link_to "Login", new_user_session_path %></li>
+            <li role="presentation"><%= link_to "Register", new_user_registration_path %></li>
+            <% end %>
+          </ul>
+        </nav>
+        <h3><%= link_to "ShareMath", root_path %></h3>
+      </div>
+    </div>
+
+    <div class="container">
       <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>">
+        <div class="alert alert-dismissible alert-<%= key %>" role="alert">
+          <button class="close" type="button" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
           <%= value %>
         </div>
       <% end %>
-    </div>
-
-    <%= yield :top_content %>
-
-    <div class="container">
-        <h1><%= yield :header %></h1>
       <%= yield %>
     </div>
     <script type="text/javascript" async
