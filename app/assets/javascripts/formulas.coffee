@@ -26,7 +26,7 @@
                 MathJax.Hub.Queue(['Typeset', MathJax.Hub, @buffer])
                 @timeout = setTimeout((=> @SwapBuffers()), @delay)
             else
-                content = '$\\rm\\LaTeX$ Expression'
+                content = '$\\rm\\LaTeX$ Preview'
                 $(@buffer).addClass('preview-placeholder')
                 @buffer.innerHTML = content
                 MathJax.Hub.Queue(['Typeset', MathJax.Hub, @buffer])
@@ -36,6 +36,7 @@
     session = editor.getSession()
     LatexMode = ace.require('ace/mode/latex').Mode
     session.setMode(new LatexMode())
+    session.setUseWrapMode(true)
     session.on 'change', ->
         content = session.getValue()
         textarea.val(content)
@@ -59,6 +60,7 @@
     session = editor.getSession()
     MarkdownMode = ace.require('ace/mode/markdown').Mode
     session.setMode(new MarkdownMode())
+    session.setUseWrapMode(true)
     session.on 'change', ->
         content = session.getValue()
         textarea.val(content)

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.2.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '>= 5.0.0.beta3', '< 5.1'
@@ -16,6 +17,10 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether'
+end
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -29,6 +34,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise', '~> 4.0.0'
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'autoprefixer-rails'
+gem 'octicons-rails'
+gem 'font-awesome-rails'
+gem 'redcarpet'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

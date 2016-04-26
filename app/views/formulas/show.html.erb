@@ -1,8 +1,31 @@
-<h1><%= @formula.title %></h1>
+<nav class="clearfix">
+    <h1 class="pull-xs-left"><%= @formula.title %></h1>
+    <% if current_user %>
+    <div class="btn-group pull-xs-right" role="group">
+        <% if current_user == @formula.user %>
+        <%= link_to(edit_formula_path(@formula),
+            method: :get,
+            class: 'btn btn-secondary') do %>
+            <%= content_tag('i', nil, class: 'octicon octicon-pencil') %> Edit
+        <% end %>
+        <%= link_to(formula_path(@formula),
+            method: :delete,
+            class: 'btn btn-secondary') do %>
+            <%= content_tag('i', nil, class: 'octicon octicon-trashcan') %> Delete
+        <% end %>
+        <% end %>
+        <%= link_to(star_formula_path(@formula),
+            method: :post,
+            class: 'btn btn-secondary') do %>
+            <%= content_tag('i', nil, class: 'octicon octicon-star') %> Star
+        <% end %>
+    </div>
+    <% end %>
+</nav>
 <hr>
 <blockquote>
 	<h2>$<%= @formula.expression %>$</h2>
 </blockquote>
 <blockquote>
-	<p><%= @formula.content %></p>
+	<p><%= markdown(@formula.content) %></p>
 </blockquote>

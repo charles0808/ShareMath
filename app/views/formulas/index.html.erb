@@ -2,17 +2,16 @@
     <div class="card-columns">
         <% @formulas.each do |formula| %>
             <blockquote class="card-blockquote">
-                <div class="card text-xs-center">
-                    <div class="card-header text-xs-left">
-                                <h3><%= link_to formula.title, formula_path(formula) %></h3>
-                                <footer>
-                                    <small class="text-muted">Created at <%= formula.created_at.to_s %></small>
-                                </footer>
+                <div class="card">
+                    <div class="card-header">
+                        <h3><%= link_to formula.title, formula_path(formula) %></h3>
+                        <small class="text-muted">Created at <%= formula.created_at.to_s %></small>
                     </div>
                     <div class="card-block">
-                    <h3 class="card-text card-formula">$<%= formula.expression %>$</h3>
+                        <div class="card-formula">
+                            <h3>$<%= formula.expression %>$</h3>
+                        </div>
                     </div>
-                    
                 </div>
             </blockquote>
         <% end %>
