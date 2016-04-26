@@ -79,6 +79,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
+    kramdown (1.10.0)
     listen (3.0.6)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9.7)
@@ -135,7 +136,6 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
-    redcarpet (3.3.4)
     responders (2.1.2)
       railties (>= 4.2.0, < 5.1)
     sass (3.4.22)
@@ -185,12 +185,12 @@ DEPENDENCIES
   font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
+  kramdown
   listen (~> 3.0.5)
   octicons-rails
   puma
   rails (>= 5.0.0.beta3, < 5.1)
   rails-assets-tether!
-  redcarpet
   sass-rails (~> 5.0)
   sqlite3
   turbolinks (~> 5.x)

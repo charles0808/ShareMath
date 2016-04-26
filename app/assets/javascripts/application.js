@@ -18,24 +18,23 @@
 //= require_tree .
 
 window.MathJax = {
+    jax: ['input/TeX', 'output/HTML-CSS'],
     tex2jax: {
+        ignoreClass: 'no-mathjax',
         inlineMath: [ ['$','$'] ]
         // processEscapes: true
     },
     showProcessingMessages: false
 };
 
-function RenderMath() {
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-}
-
-function RenderAce() {
-
-}
-
 function ShareMathMain() {
-    RenderMath();
-    if ($('form.new-formula').length) {
+    if ($('.formulas-index').length) {
+        setupFormulasIndex();
+    }
+    if ($('.formula-show').length) {
+        setupFormulaShow();
+    }
+    if ($('form.edit-formula').length) {
         setupExpressionEditor();
         setupContentEditor();
     }

@@ -1,6 +1,8 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+@setupFormulasIndex = ->
+    MathJax.Hub.Queue(['Typeset', MathJax.Hub, $('.formulas-index .card-formula').toArray()])
+
+@setupFormulaShow = ->
+    MathJax.Hub.Queue(['Typeset', MathJax.Hub, $('.formula-show').toArray()])
 
 @setupExpressionEditor = ->
     ExpressionPreview =

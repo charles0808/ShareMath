@@ -23,9 +23,12 @@
     <% end %>
 </nav>
 <hr>
-<blockquote>
-	<h2>$<%= @formula.expression %>$</h2>
-</blockquote>
-<blockquote>
-	<p><%= markdown(@formula.content) %></p>
-</blockquote>
+<div class="formula-show">
+    <div class="formula-show-title">
+        <h2>$<%= @formula.expression %>$</h2>
+    </div>
+    <div class="formula-show-content">
+        <%= markdown(@formula.content) %>
+    </div>
+</div>
+

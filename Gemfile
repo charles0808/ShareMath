@@ -36,7 +36,7 @@ gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'autoprefixer-rails'
 gem 'octicons-rails'
 gem 'font-awesome-rails'
-gem 'redcarpet'
+gem 'kramdown'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

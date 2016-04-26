@@ -50,5 +50,11 @@ if $x \equiv y \pmod{\varphi (n)}$, then $a^x \equiv a^y \pmod{n}$.
 Euler\'s theorem also forms the basis of the **RSA encryption system**, where the net result of first encrypting a plaintext message, then later decrypting it, amounts to exponentiating a large input number by $k\varphi (n) + 1$, for some positive integer $k$. Euler\'s theorem then guarantees that the decrypted output number is equal to the original input number, giving back the plaintext.
 
 [1]: https://en.wikipedia.org/wiki/Modular_arithmetic'
+  },
+  {
+    user: user,
+    title: 'Green\'s Theorem',
+    expression: '\oint_{C} (L\, dx + M\, dy) = \iint_{D} \left(\frac{\partial M}{\partial x} - \frac{\partial L}{\partial y}\right)\, dx\, dy',
+    content: 'In mathematics, Green\'s theorem gives the relationship between a line integral around a simple closed curve $C$ and a double integral over the plane region $D$ bounded by $C$. It is named after George Green and is the two-dimensional special case of the more general **Kelvin–Stokes theorem**.'
   }
 ])
