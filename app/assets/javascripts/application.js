@@ -20,7 +20,8 @@ window.MathJax = {
     tex2jax: {
         inlineMath: [ ['$','$'] ]
         // processEscapes: true
-    }
+    },
+    showProcessingMessages: false
 };
 
 function RenderMath() {
@@ -33,8 +34,9 @@ function RenderAce() {
 
 function ShareMathMain() {
     RenderMath();
-    if ( typeof setupExpressionEditor === 'function' ) {
+    if ($('form.new-formula').length) {
         setupExpressionEditor();
+        setupContentEditor();
     }
 }
 
