@@ -1,5 +1,5 @@
 class FormulasController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :update, :destroy, :star, :unstar]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :star, :unstar, :stars]
   before_action :require_owner, only: [:destroy]
 
   def index
@@ -51,6 +51,11 @@ class FormulasController < ApplicationController
     formula = Formula.find(params[:id])
     current_user.unstar(formula)
     redirect_to formula_path(formula)
+  end
+
+  def stars
+    stars = Star.where(user: current_user)
+    @formulas = stars.map {|s| s.formula}
   end
 
   def search
