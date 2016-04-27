@@ -34,3 +34,7 @@ body {
 .alert-notice {
   @extend .alert-info;
 }
+
+form#new_user {
+    max-width: 300px;
+}
