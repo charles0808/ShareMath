@@ -1,4 +1,50 @@
 # Title
+Taylor's Theorem
+
+# Expression
+P_k(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 \\+ \cdots + \frac{f^{(k)}(a)}{k!}(x-a)^k
+
+# Content
+Let $k \ge 1$ be an integer and let the function $f : R \to R$ be $k$ times differentiable at the point $a \in R$. Then there exists a function $h_k : R \to R$ such that
+
+$f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots + \frac{f^{(k)}(a)}{k!}(x-a)^k + h_k(x)(x-a)^k$,
+
+$\mbox{and}\quad\lim_{x\to a}h_k(x)=0$.
+
+This is called the **[Peano][1] form of the remainder**.
+
+The polynomial appearing in **Taylor's theorem** is the $k$-th order **Taylor polynomial**
+
+$P_k(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots + \frac{f^{(k)}(a)}{k!}(x-a)^k$
+
+of the function $f$ at the point $a$. The Taylor polynomial is the unique "asymptotic best fit" polynomial in the sense that if there exists a function $h_k : R \to R$ and a $k$-th order polynomial $p$ such that
+
+$f(x) = p(x) + h_k(x)(x-a)^k, \quad \lim_{x\to a}h_k(x)=0$,
+
+then $p = P_k$. Taylor's theorem describes the asymptotic behavior of the remainder term
+
+$R_k(x) = f(x) - P_k(x)$,
+
+which is the approximation error when approximating $f$ with its Taylor polynomial. Using the [little-o notation][2] the statement in Taylor's theorem reads as
+
+$R_k(x) = o(|x-a|^k), \quad x\to a$.
+
+[1]: https://en.wikipedia.org/wiki/Peano
+[2]: https://en.wikipedia.org/wiki/Little-o_notation
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Title
 Mass–Energy Equivalence
 
 # Expression
