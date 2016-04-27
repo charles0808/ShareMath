@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :formulas do
-    post    :star,    on: :member,  to: 'formulas#star'
-    delete  :unstar,  on: :member,  to: 'formulas#unstar'
+    post    :star,    on: :member,      to: 'formulas#star'
+    delete  :unstar,  on: :member,      to: 'formulas#unstar'
+    get     :search,  on: :collection,  to: 'formulas#search'
   end
 
   root 'formulas#index'

@@ -38,8 +38,8 @@ function ShareMathMain() {
         smartLists: true,
         smartypants: false
     });
-    if ($('.formulas-index').length) {
-        setupFormulasIndex();
+    if ($('.formulas-list').length) {
+        setupFormulasList();
     }
     if ($('.formula-show').length) {
         setupFormulaShow();

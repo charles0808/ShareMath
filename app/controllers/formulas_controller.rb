@@ -53,6 +53,10 @@ class FormulasController < ApplicationController
     redirect_to formula_path(formula)
   end
 
+  def search
+    @formulas = Formula.search(params[:q])
+  end
+
   private
   def forumla_params
     params.require(:formula).permit(:title, :expression, :content)

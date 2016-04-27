@@ -1,0 +1,21 @@
+<div class="formulas-list">
+    <% @formulas.each_slice(3) do |formula_row| %>
+    <div class="row">
+        <% formula_row.each do |formula| %>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3><%= link_to formula.title, formula_path(formula) %></h3>
+                    <small class="text-muted">Created at <%= formula.created_at.to_s %></small>
+                </div>
+                <div class="card-block">
+                    <div class="card-formula">
+                        <h3>$<%= formula.expression %>$</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% end %>
+    </div>
+    <% end %>
+</div>

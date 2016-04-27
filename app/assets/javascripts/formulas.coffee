@@ -1,5 +1,5 @@
-@setupFormulasIndex = ->
-    MathJax.Hub.Queue(['Typeset', MathJax.Hub, $('.formulas-index .card-formula').toArray()])
+@setupFormulasList = ->
+    MathJax.Hub.Queue(['Typeset', MathJax.Hub, $('.formulas-list .card-formula').toArray()])
 
 @setupFormulaShow = ->
     MathJax.Hub.Queue(['Typeset', MathJax.Hub, $('.formula-show').toArray()])
