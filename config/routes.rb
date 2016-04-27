@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :formulas do
     post    :star,    on: :member,      to: 'formulas#star'
     delete  :unstar,  on: :member,      to: 'formulas#unstar'
+    get     :stars,   on: :collection,  to: 'formulas#stars'
     get     :search,  on: :collection,  to: 'formulas#search'
   end
 

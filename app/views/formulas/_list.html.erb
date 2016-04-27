@@ -9,7 +9,7 @@
                         <div class="col-sm-10"><h3><%= link_to formula.title, formula_path(formula) %></h3></div>
                         <div class="col-sm-2">
                             <div class="formula-card-header-small">
-                                <small class="text-muted formula-card-star">
+                                <small class="text-muted formula-card-star<%= user_signed_in? && current_user.starred?(formula) && ' starred' || '' %>">
                                     <%= content_tag('i', nil, class: 'octicon octicon-star') %>
                                     <%= formula.stars_count %>
                                 </small>

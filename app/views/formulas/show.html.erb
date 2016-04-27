@@ -17,7 +17,7 @@
         <% if current_user.starred?(@formula) %>
         <%= link_to(unstar_formula_path(@formula),
             method: :delete,
-            class: 'btn btn-secondary') do %>
+            class: 'btn btn-secondary starred') do %>
             <%= content_tag('i', nil, class: 'octicon octicon-star') %> Unstar
             <span class="stars-count">
                 <%= @formula.stars_count %>
