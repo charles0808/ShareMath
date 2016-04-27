@@ -1,0 +1,33 @@
+<%= form_for @formula, :html => {:class => 'edit-formula no-mathjax'} do |f| %>
+  <fieldset class="form-group">
+    <%= f.text_field :title, :class => 'form-control', :placeholder => 'Formula Name' %>
+  </fieldset>
+  <fieldset class="form-group">
+    <h1 id="formula-expression-preview"></h1>
+    <h1 id="formula-expression-buffer" style="visibility:hidden;position:absolute"></h1>
+    <%= f.text_area :expression, :class => 'form-control' %>
+    <div id="formula-expression-editor"></div>
+  </fieldset>
+  <fieldset class="form-group">
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#formula-content-markdown-tab" role="tab">Markdown</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#formula-content-preview-tab" role="tab">Preview</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane fade in active" id="formula-content-markdown-tab" role="tabpanel">
+        <%= f.text_area :content, :class => 'form-control' %>
+        <div id="formula-content-editor"></div>
+      </div>
+      <div class="tab-pane fade" id="formula-content-preview-tab" role="tabpanel">
+        <div id="formula-content-preview"></div>
+      </div>
+    </div>
+  </fieldset>
+  <p>
+    <%= f.submit :class => 'btn btn-primary' %>
+  </p>
+<% end %>

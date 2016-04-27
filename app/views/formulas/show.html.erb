@@ -1,12 +1,48 @@
-<p>
-    <strong>Title:</strong>
-    <%= @article.title %>
-</p>
-<p>
-    <strong>Expression:</strong>
-    <%= @article.expression %>
-</p>
-<p>
-    <strong>Content:</strong>
-    <%= @article.content %>
-</p>
+<nav class="clearfix">
+    <h1 class="pull-xs-left"><%= @formula.title %></h1>
+    <% if current_user %>
+    <div class="btn-group pull-xs-right" role="group">
+        <% if current_user == @formula.user %>
+        <%= link_to(edit_formula_path(@formula),
+            method: :get,
+            class: 'btn btn-secondary') do %>
+            <%= content_tag('i', nil, class: 'octicon octicon-pencil') %> Edit
+        <% end %>
+        <%= link_to(formula_path(@formula),
+            method: :delete,
+            class: 'btn btn-secondary') do %>
+            <%= content_tag('i', nil, class: 'octicon octicon-trashcan') %> Delete
+        <% end %>
+        <% end %>
+        <% if current_user.starred?(@formula) %>
+        <%= link_to(unstar_formula_path(@formula),
+            method: :delete,
+            class: 'btn btn-secondary') do %>
+            <%= content_tag('i', nil, class: 'octicon octicon-star') %> Unstar
+            <span class="stars-count">
+                <%= @formula.stars_count %>
+            </span>
+        <% end %>
+        <% else %>
+        <%= link_to(star_formula_path(@formula),
+            method: :post,
+            class: 'btn btn-secondary') do %>
+            <%= content_tag('i', nil, class: 'octicon octicon-star') %> Star
+            <span class="stars-count">
+                <%= @formula.stars_count %>
+            </span>
+        <% end %>
+        <% end %>
+    </div>
+    <% end %>
+</nav>
+<hr>
+<div class="formula-show">
+    <div class="formula-show-title">
+        <h2>$<%= @formula.expression %>$</h2>
+    </div>
+    <div class="formula-show-content">
+        <%= markdown(@formula.content) %>
+    </div>
+</div>
+

@@ -1,0 +1,9 @@
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  name: ShareMath
+  host: ShareMath
+  disk_quota: 1024M
+  command: DISABLE_DATABASE_ENVIRONMENT_CHECK=1 bundle exec rake db:drop db:create db:migrate db:seed && bundle exec rails s -p $PORT -e $RAILS_ENV

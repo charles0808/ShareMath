@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
-  resources :formulas
+  devise_for :users
+  resources :formulas do
+    post    :star,    on: :member,      to: 'formulas#star'
+    delete  :unstar,  on: :member,      to: 'formulas#unstar'
+    get     :search,  on: :collection,  to: 'formulas#search'
+  end
 
-  get 'welcome/index'
-  root 'welcome#index'
+  root 'formulas#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
