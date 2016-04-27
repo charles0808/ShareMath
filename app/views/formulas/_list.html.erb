@@ -5,12 +5,24 @@
         <div class="col-sm-4">
             <div class="card">
                 <div class="card-header">
-                    <h3><%= link_to formula.title, formula_path(formula) %></h3>
-                    <small class="text-muted">Created at <%= formula.created_at.to_s %></small>
+                    <div class="row">
+                        <div class="col-sm-10"><h3><%= link_to formula.title, formula_path(formula) %></h3></div>
+                        <div class="col-sm-2">
+                            <div class="formula-card-header-small">
+                                <small class="text-muted formula-card-star">
+                                    <%= content_tag('i', nil, class: 'octicon octicon-star') %>
+                                    <%= formula.stars_count %>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-block">
                     <div class="card-formula">
                         <h3>$<%= formula.expression %>$</h3>
+                    </div>
+                    <div class="formula-card-block-small">
+                        <small class="text-muted formula-card-time">Created at <%= formula.created_at.to_s %></small>
                     </div>
                 </div>
             </div>
