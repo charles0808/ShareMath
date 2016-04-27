@@ -11,18 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160424041425) do
+ActiveRecord::Schema.define(version: 20160427031201) do
 
   create_table "formulas", force: :cascade do |t|
     t.string   "title"
     t.text     "expression"
     t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "user_id"
+    t.integer  "stars_count", default: 0
   end
 
   add_index "formulas", ["user_id"], name: "index_formulas_on_user_id"
+
+  create_table "stars", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "formula_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "stars", ["formula_id"], name: "index_stars_on_formula_id"
+  add_index "stars", ["user_id"], name: "index_stars_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

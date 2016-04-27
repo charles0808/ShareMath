@@ -1,5 +1,5 @@
 class FormulasController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :star, :unstar]
   before_action :require_owner, only: [:destroy]
 
   def index
@@ -39,6 +39,18 @@ class FormulasController < ApplicationController
   def destroy
     Formula.destroy(params[:id])
     redirect_to root_path
+  end
+
+  def star
+    formula = Formula.find(params[:id])
+    current_user.star(formula)
+    redirect_to formula_path(formula)
+  end
+
+  def unstar
+    formula = Formula.find(params[:id])
+    current_user.unstar(formula)
+    redirect_to formula_path(formula)
   end
 
   private

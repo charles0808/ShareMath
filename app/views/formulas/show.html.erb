@@ -14,10 +14,24 @@
             <%= content_tag('i', nil, class: 'octicon octicon-trashcan') %> Delete
         <% end %>
         <% end %>
+        <% if current_user.starred?(@formula) %>
+        <%= link_to(unstar_formula_path(@formula),
+            method: :delete,
+            class: 'btn btn-secondary') do %>
+            <%= content_tag('i', nil, class: 'octicon octicon-star') %> Unstar
+            <span class="stars-count">
+                <%= @formula.stars_count %>
+            </span>
+        <% end %>
+        <% else %>
         <%= link_to(star_formula_path(@formula),
             method: :post,
             class: 'btn btn-secondary') do %>
             <%= content_tag('i', nil, class: 'octicon octicon-star') %> Star
+            <span class="stars-count">
+                <%= @formula.stars_count %>
+            </span>
+        <% end %>
         <% end %>
     </div>
     <% end %>
