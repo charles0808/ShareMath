@@ -1,5 +1,5 @@
 class FormulasController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :star, :unstar]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :star, :unstar]
   before_action :require_owner, only: [:destroy]
 
   def index
@@ -20,7 +20,7 @@ class FormulasController < ApplicationController
 
   def create
     params = forumla_params
-    params[:user] = current_user
+    params[:user] = current_user || User.anonymous
     @formula = Formula.new(params)
     @formula.save
     redirect_to @formula

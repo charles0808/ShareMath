@@ -7,6 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 begin
+  anonymous = User.find(:params => {:email => 'anonymous@rix.li'})
+rescue
+  anonymous = User.create! :email => 'anonymous@rix.li', :password => 'oijoij', :password_confirmation => 'oijoij'
+end
+
+begin
   user = User.find(:params => {:email => 'i@rix.li'})
 rescue
   user = User.create! :email => 'i@rix.li', :password => 'oijoij', :password_confirmation => 'oijoij'
@@ -16,7 +22,7 @@ begin
   Formula.find(:params => {:title => 'Pythagorean Theorem'})
 rescue
   Formula.create!(
-    user: user,
+    user: anonymous,
     title: 'Pythagorean Theorem',
     expression: 'a^2+b^2=c^2',
     content: 'In mathematics, the Pythagorean theorem, also known as Pythagoras\' theorem, is a fundamental relation in Euclidean geometry among the three sides of a right triangle. It states that the square of the hypotenuse (the side opposite the right angle) is equal to the sum of the squares of the other two sides. The theorem can be written as an equation relating the lengths of the sides $a$, $b$ and $c$, often called the "Pythagorean equation":

@@ -5,6 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :stars
 
+  def self.anonymous
+    where(email: 'anonymous@rix.li').first
+  end
+
   def star(formula)
     star = Star.find_by(user: self,
                         formula: formula)
