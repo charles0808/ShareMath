@@ -28,6 +28,16 @@ window.MathJax = {
 };
 
 function ShareMathMain() {
+    marked.setOptions({
+        renderer: new marked.Renderer(),
+        gfm: true,
+        tables: true,
+        break: false,
+        pedantic: false,
+        sanitize: false,
+        smartLists: true,
+        smartypants: false
+    });
     if ($('.formulas-index').length) {
         setupFormulasIndex();
     }

@@ -51,12 +51,27 @@
         delay: 300
         timeout: null
         preview: document.getElementById('formula-content-preview')
+        Markdown: ->
+            text = @preview.innerHTML;
+            text = text.replace(/^&gt;/mg, '>')
+            @preview.innerHTML = marked(text)
         Render: (content) ->
-            @preview.innerHTML = marked(content)
-            MathJax.Hub.Queue(['Typeset', MathJax.Hub, @preview])
+            @preview.innerHTML = @Escape(content)
+            MathJax.Hub.Queue(
+                ['Typeset', MathJax.Hub, @preview],
+                ['Markdown', @],
+                ['resetEquationNumbers', MathJax.InputJax.TeX]
+            )
+            marked(content)
         Update: (content) ->
             clearTimeout(@timeout)
             @timeout = setTimeout((=> @Render(content)), @delay)
+        Escape: (html, encode) ->
+            html.replace(!encode && /&(?!#?\w+;)/g || /&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
     editor = ace.edit('formula-content-editor')
     textarea = $('textarea#formula_content').hide()
     session = editor.getSession()
